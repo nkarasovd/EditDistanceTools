@@ -9,4 +9,4 @@ def test_main():
     w2 = [0.1, 0.25, 0.4, 1.0]
 
     x = weighted_levenshtein(s1, s2, w1, w2, 3, 4)
-    assert x == 1.4500000476837158
+    assert x == 1.45
