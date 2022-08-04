@@ -12,7 +12,7 @@ using namespace std;
 double min(double x, double y, double z) { return min(min(x, y), z); }
 
 
-float editDistLevenshtein(
+double editDistLevenshtein(
     vector<int> seq_1,
     vector<int> seq_2,
     vector<double> weights_1,
