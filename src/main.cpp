@@ -16,10 +16,12 @@ double editDistLevenshtein(
     vector<int> seq_1,
     vector<int> seq_2,
     vector<double> weights_1,
-    vector<double> weights_2,
-    int m, int n
+    vector<double> weights_2
     )
 {
+    int m = seq_1.size();
+    int n = seq_2.size();
+
     double dp[m + 1][n + 1];
 
     dp[0][0] = 0.0;
