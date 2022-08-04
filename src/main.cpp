@@ -9,12 +9,12 @@ int add(int i, int j) {
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(cmake_example, m) {
+PYBIND11_MODULE(edit_distance_tools, m) {
     m.doc() = R"pbdoc(
-        Pybind11 example plugin
+        Pybind11 edit distance tools plugin
         -----------------------
 
-        .. currentmodule:: cmake_example
+        .. currentmodule:: edit_distance_tools
 
         .. autosummary::
            :toctree: _generate
