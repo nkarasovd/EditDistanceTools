@@ -36,13 +36,57 @@ double editDistLevenshtein(
                 dp[i][j] = dp[i - 1][j - 1];
             else
                 dp[i][j]
-                    = min(dp[i][j - 1] + weights_2[j - 1], // Insert
-                          dp[i - 1][j] + weights_1[i - 1], // Remove
-                          dp[i - 1][j - 1] + weights_1[i - 1] + weights_2[j - 1]); // Replace
+                    = min(
+                    dp[i][j - 1] + weights_2[j - 1], // Insert
+                    dp[i - 1][j] + weights_1[i - 1], // Remove
+                    dp[i - 1][j - 1] + weights_1[i - 1] + weights_2[j - 1]  // Replace
+                    );
         }
     }
 
     return dp[m][n];
+}
+
+
+double max(double x, double y, double z) { return max(max(x, y), z); }
+
+
+double cost(int i, int j, double c, double o) {
+    return exp(-c * min(i, j)) * exp(-o * abs(i - j));
+}
+
+
+double reBucketSimilarity(
+    vector<int> stack_1,
+    vector<int> stack_2,
+    int m, int n,
+    double c, double o
+    )
+{
+    double sim_matrix[m + 1][n + 1] = {0.0};
+
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (stack_1[i - 1] == stack_2[j - 1])
+                double x = 0.0;
+            else:
+                double x = 0.0;
+
+            sim_matrix[i][j] = max(
+                sim_matrix[i - 1][j - 1] + x,
+                sim_matrix[i - 1][j],
+                sim_matrix[i][j - 1]
+            );
+        }
+    }
+
+    double denominator = 0.0;
+
+    for (int i = 0; i <= int(min(m, n)); i++) {
+        denominator += exp(c * i);
+    }
+
+    return sim_matrix[m, n] / denominator;
 }
 
 namespace py = pybind11;
@@ -61,9 +105,11 @@ PYBIND11_MODULE(edit_distance_tools, m) {
     )pbdoc";
 
     m.def("weighted_levenshtein", &editDistLevenshtein, R"pbdoc(
-        Add two numbers
+        Weighted Levenshtein distance.
+    )pbdoc");
 
-        Some other explanation about the add function.
+    m.def("rebucket_similarity", &reBucketSimilarity, R"pbdoc(
+        ReBucket similarity.
     )pbdoc");
 
 #ifdef VERSION_INFO
