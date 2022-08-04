@@ -68,8 +68,8 @@ double reBucketSimilarity(
     for (int i = 1; i <= m; i++) {
         for (int j = 1; j <= n; j++) {
             if (stack_1[i - 1] == stack_2[j - 1])
-                double x = 0.0;
-            else:
+                double x = cost(i - 1, j - 1, c, o);
+            else
                 double x = 0.0;
 
             sim_matrix[i][j] = max(
