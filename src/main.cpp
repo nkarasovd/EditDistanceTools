@@ -59,10 +59,12 @@ double cost(int i, int j, double c, double o) {
 double reBucketSimilarity(
     vector<int> stack_1,
     vector<int> stack_2,
-    int m, int n,
     double c, double o
     )
 {
+    int m = stack_1.size();
+    int n = stack_2.size();
+
     double sim_matrix[m + 1][n + 1];
     memset(sim_matrix, 0.0, sizeof(sim_matrix));
 
