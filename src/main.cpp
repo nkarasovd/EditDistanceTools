@@ -86,7 +86,7 @@ double reBucketSimilarity(
         denominator += exp(c * i);
     }
 
-    return sim_matrix[m, n] / denominator;
+    return sim_matrix[m][n] / denominator;
 }
 
 namespace py = pybind11;
