@@ -1,5 +1,5 @@
 package:
-  name: cmake_example
+  name: edit_distance_tools
   version: 0.0.1
 
 source:
@@ -27,7 +27,7 @@ test:
   requires:
     - pytest
   imports:
-    - cmake_example
+    - edit_distance_tools
   source_files:
     - tests
   commands:
