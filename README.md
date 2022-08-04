@@ -77,6 +77,7 @@ terms and conditions of this license.
 
 ```python
 from edit_distance_tools import weighted_levenshtein
+
 s1 = [1, 5, 3]
 s2 = [1, 2, 3, 4]
 
