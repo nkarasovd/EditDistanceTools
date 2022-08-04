@@ -82,7 +82,7 @@ double reBucketSimilarity(
 
     double denominator = 0.0;
 
-    for (int i = 0; i <= int(min(m, n)); i++) {
+    for (int i = 0; i < int(min(m, n)); i++) {
         denominator += exp(c * i);
     }
 
