@@ -106,6 +106,7 @@ PYBIND11_MODULE(edit_distance_tools, m) {
            :toctree: _generate
 
            editDistLevenshtein
+           reBucketSimilarity
     )pbdoc";
 
     m.def("weighted_levenshtein", &editDistLevenshtein, R"pbdoc(
