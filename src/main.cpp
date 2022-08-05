@@ -87,7 +87,7 @@ double reBucketSimilarity(
     double denominator = 0.0;
 
     for (int i = 0; i < int(min(m, n)); i++) {
-        denominator += exp(c * i);
+        denominator += exp(-c * i);
     }
 
     return sim_matrix[m][n] / denominator;
